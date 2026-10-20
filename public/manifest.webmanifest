@@ -1,0 +1,9 @@
+{
+  "name": "Daily Stack",
+  "short_name": "Daily Stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EEE4D3",
+  "theme_color": "#EEE4D3",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
