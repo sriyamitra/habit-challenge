@@ -182,6 +182,7 @@ export default function Login() {
 
 function Step({ i, c, title, text, children }) {
   return (
+    <>
     <article className="lp-step" style={{ '--i': i, '--c': c }}>
       <div className="lp-step-glow" aria-hidden="true" />
       <div className="lp-step-copy">
@@ -193,6 +194,9 @@ function Step({ i, c, title, text, children }) {
       </div>
       <div className="lp-step-visual">{children}</div>
     </article>
+    {/* spacer: sticky cards can't use margins, or they unstick early */}
+    <div className="lp-gap" aria-hidden="true" />
+    </>
   )
 }
 
