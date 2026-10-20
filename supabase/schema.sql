@@ -208,3 +208,14 @@ create policy "delete own photos" on storage.objects for delete
 
 -- ---------- Realtime ----------
 alter publication supabase_realtime add table public.messages, public.checkins, public.cheers, public.members;
+
+-- ---------- Update 002: edit / delete (also in 002-edit-delete.sql) ----------
+create or replace function public.is_creator(cid uuid)
+returns boolean language sql stable security definer set search_path = public as $$
+  select exists (select 1 from public.challenges where id = cid and created_by = auth.uid());
+$$;
+create policy "creator deletes challenge" on public.challenges for delete using (created_by = auth.uid());
+create policy "creator adds habits" on public.habits for insert with check (public.is_creator(challenge_id));
+create policy "creator edits habits" on public.habits for update using (public.is_creator(challenge_id)) with check (public.is_creator(challenge_id));
+create policy "creator removes habits" on public.habits for delete using (public.is_creator(challenge_id));
+create policy "creator removes members" on public.members for delete using (public.is_creator(challenge_id));

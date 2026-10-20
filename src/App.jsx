@@ -12,6 +12,7 @@ import Checkin from './pages/Checkin'
 import Chat from './pages/Chat'
 import Friends from './pages/Friends'
 import Wager from './pages/Wager'
+import Settings from './pages/Settings'
 
 export default function App() {
   const { session, profile } = useAuth() || {}
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="chat" element={<Chat />} />
         <Route path="friends" element={<Friends />} />
         <Route path="wager" element={<Wager />} />
+        <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

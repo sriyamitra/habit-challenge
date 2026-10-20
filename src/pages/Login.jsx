@@ -74,17 +74,17 @@ export default function Login() {
           </form>
         ) : (
           <form onSubmit={verify} className="stack">
-            <p className="small" style={{ margin: 0 }}>We emailed a code to <b>{email}</b>. Type it here. You don't need to open the link.</p>
+            <p className="small" style={{ margin: 0 }}>We emailed a 6-digit code to <b>{email}</b>.</p>
             <label className="field">
               <span className="mono label">CODE FROM THE EMAIL</span>
               <input
-                inputMode="numeric" autoComplete="one-time-code" required minLength={6} maxLength={10}
-                value={code} onChange={(e) => setCode(e.target.value.replace(/[^0-9]/g, ''))}
+                inputMode="numeric" autoComplete="one-time-code" required minLength={6} maxLength={6}
+                value={code} onChange={(e) => setCode(e.target.value.replace(/[^0-9]/g, '').slice(0, 6))}
                 placeholder="123456" style={{ fontFamily: 'var(--mono)', fontSize: 22, letterSpacing: '0.3em' }} autoFocus
               />
             </label>
             {error && <p className="error">{error}</p>}
-            <button className="btn primary" disabled={busy || code.length < 6}>{busy ? 'Checking…' : 'Sign in'}</button>
+            <button className="btn primary" disabled={busy || code.length !== 6}>{busy ? 'Checking…' : 'Sign in'}</button>
             <div className="row between">
               <button type="button" className="link-btn small" onClick={() => { setStep('email'); setCode(''); setError('') }}>Change email</button>
               <button type="button" className="link-btn small" onClick={sendCode} disabled={busy}>Send a new code</button>

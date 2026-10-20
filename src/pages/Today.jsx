@@ -8,7 +8,7 @@ import { colorOf } from '../lib/colors'
 import Aura from '../components/Aura'
 import Ticks from '../components/Ticks'
 import Avatar from '../components/Avatar'
-import { IconArrow, IconCheck } from '../components/Icons'
+import { IconArrow, IconCheck, IconMore } from '../components/Icons'
 
 export default function Today() {
   const { challenge, habits, checkins, me, members } = useChallenge()
@@ -36,7 +36,10 @@ export default function Today() {
       <header className="pad top">
         <div className="row between">
           <div className="eyebrow mono">{fmtLong(today)}</div>
-          <Link to="/" aria-label="All challenges"><Avatar name={me.name} color="var(--ink)" size={40} /></Link>
+          <div className="header-actions">
+            <Link to="settings" className="icon-btn" aria-label="Challenge settings"><IconMore /></Link>
+            <Link to="/" aria-label="All challenges"><Avatar name={me.name} color="var(--ink)" size={40} /></Link>
+          </div>
         </div>
         <h1 className="h1">Make today<br />count, {me.name}.</h1>
       </header>

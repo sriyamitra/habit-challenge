@@ -35,8 +35,9 @@ export default function Friends() {
 
   return (
     <>
-      <header className="pad top">
+      <header className="pad top row between">
         <div className="eyebrow mono">FRIENDS</div>
+        <Link to={`/c/${challenge.id}/settings`} className="link-btn mono small">SETTINGS</Link>
       </header>
       <Aura items={auraItems} height={300} />
       <div className="pad-x">

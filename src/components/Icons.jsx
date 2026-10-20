@@ -24,3 +24,6 @@ export const IconHeart = () => (
 )
 export const IconPlus = () => <svg {...base} width={20} height={20}><path d="M12 5v14M5 12h14" /></svg>
 export const IconClose = () => <svg {...base} width={20} height={20}><path d="M6 6l12 12M18 6L6 18" /></svg>
+export const IconMore = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="1.7" /><circle cx="12" cy="12" r="1.7" /><circle cx="19" cy="12" r="1.7" /></svg>
+)
