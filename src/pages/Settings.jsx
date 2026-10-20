@@ -81,9 +81,9 @@ function EditForm() {
       <h1 className="h1" style={{ marginTop: 12 }}>Edit challenge</h1>
       <form onSubmit={save} className="stack" style={{ marginTop: 20 }}>
         <label className="field"><span className="mono label">NAME</span><input required maxLength={80} value={name} onChange={(e) => { setSaved(false); setName(e.target.value) }} /></label>
-        <div className="row gap">
-          <label className="field grow"><span className="mono label">STARTS</span><input type="date" required value={start} onChange={(e) => { setSaved(false); setStart(e.target.value) }} /></label>
-          <label className="field" style={{ width: 110 }}><span className="mono label">DAYS</span><input type="number" min={1} max={365} required value={days} onChange={(e) => { setSaved(false); setDays(e.target.value) }} /></label>
+        <div className="date-row">
+          <label className="field"><span className="mono label">STARTS</span><input type="date" required value={start} onChange={(e) => { setSaved(false); setStart(e.target.value) }} /></label>
+          <label className="field"><span className="mono label">DAYS</span><input type="number" min={1} max={365} required value={days} onChange={(e) => { setSaved(false); setDays(e.target.value) }} /></label>
         </div>
         <label className="field"><span className="mono label">WAGER</span><input value={stake} onChange={(e) => { setSaved(false); setStake(e.target.value) }} placeholder="e.g. Losers buy dinner" maxLength={120} /></label>
 

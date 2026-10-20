@@ -44,9 +44,9 @@ export default function NewChallenge() {
       <h1 className="h1" style={{ marginTop: 12 }}>Set the rules.</h1>
       <form onSubmit={submit} className="stack" style={{ marginTop: 20 }}>
         <label className="field"><span className="mono label">NAME</span><input required maxLength={80} value={name} onChange={(e) => setName(e.target.value)} /></label>
-        <div className="row gap">
-          <label className="field grow"><span className="mono label">STARTS</span><input type="date" required value={start} min={todayISO()} onChange={(e) => setStart(e.target.value)} /></label>
-          <label className="field" style={{ width: 110 }}><span className="mono label">DAYS</span><input type="number" min={1} max={365} required value={days} onChange={(e) => setDays(e.target.value)} /></label>
+        <div className="date-row">
+          <label className="field"><span className="mono label">STARTS</span><input type="date" required value={start} min={todayISO()} onChange={(e) => setStart(e.target.value)} /></label>
+          <label className="field"><span className="mono label">DAYS</span><input type="number" min={1} max={365} required value={days} onChange={(e) => setDays(e.target.value)} /></label>
         </div>
         <label className="field"><span className="mono label">WAGER (OPTIONAL)</span><input value={stake} onChange={(e) => setStake(e.target.value)} placeholder="e.g. Losers buy dinner" maxLength={120} /></label>
 
